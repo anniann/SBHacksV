@@ -39,8 +39,8 @@ const handleForce = data => {
 
     shelfLifeInfo[data[i][1]] = data[i][2];
   }
-  console.log(deptAndProducts);
-  console.log(shelfLifeInfo);
+  //console.log(deptAndProducts);
+  //console.log(shelfLifeInfo);
 };
 
 export const dP = deptAndProducts
@@ -54,11 +54,34 @@ class App extends Component {
         <h3> Form </h3>
         <CSVReader
           cssClass="react-csv-input"
-          label="Please Input Known Storage Life"
+          label="Upload Portion Control Chart"
+          onFileLoaded={handleForce}
+        />
+
+        <CSVReader
+          cssClass="react-csv-input"
+          label="Upload Sales For Last Period"
+          onFileLoaded={handleForce}
+        />
+
+        <CSVReader
+          cssClass="react-csv-input"
+          label="Order Choices"
+          onFileLoaded={handleForce}
+        />
+
+        <CSVReader
+          cssClass="react-csv-input"
+          label="Existing Inventory"
           onFileLoaded={handleForce}
         />
 
         <FormContainer/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
       </div>
     );
   }

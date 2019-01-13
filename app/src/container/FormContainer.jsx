@@ -19,34 +19,28 @@ class Form extends React.Component {
       departments: [
         {
           id: 0,
-          title: 'Dairy',
+          title: '1 Week ',
           selected: false,
           key: 'departments'
         },
         {
           id: 1,
-          title: 'Bakery',
+          title: '2 Weeks',
           selected: false,
           key: 'departments'
         },
         {
           id: 2,
-          title: 'Fruits',
+          title: '4 Weeks',
           selected: false,
           key: 'departments'
         },
         {
           id: 3,
-          title: 'Vegetables',
+          title: '8 Weeks',
           selected: false,
           key: 'departments'
         },
-        {
-          id: 4,
-          title: 'Meats',
-          selected: false,
-          key: 'departments'
-        }
       ],
 
       stuff: [
@@ -104,6 +98,7 @@ class Form extends React.Component {
     }
     //const newArr = this.state.slice()
     this.setState({["stuff"] : show})
+    console.log("past state ", this.props.stuff)
     console.log("setting new state to ", show)
     console.log("current new state ", this.props.stuff)
   }
@@ -128,6 +123,11 @@ class Form extends React.Component {
   }
   handleSubmit = (e) => {
     e.preventDefault()
+    console.log("submitted!!")
+
+    var PythonShell = require('python-shell');
+    //PythonShell.run('my_script.py', options, function (err, results) {
+      // add command line code here
   }
 
   addProduct = (e) => {
@@ -163,16 +163,8 @@ class Form extends React.Component {
           <div>
 
             <Dropdown
-            title="Select Department"
+            title="Select Period"
             list={this.state.departments}
-            resetThenSet={this.resetThenSet}
-            listChange={this.listChange}
-            />
-            <br/>
-            <Dropdown
-            title="Select Type"
-            //list={this.state.products}
-            list = {this.state.stuff}
             resetThenSet={this.resetThenSet}
             listChange={this.listChange}
             />
@@ -182,71 +174,13 @@ class Form extends React.Component {
           <br/>
           <br/>
 
-            <div class>
-              <div class="left">
-                <label htmlFor={ProductId}>Brand</label>
-              </div>
-                <input
-                  type="text"
-                  name={ProductId}
-                  data-id={index}
-                  id={ProductId}
-                  value={products[index].name}
-                  className="name"
-                />
-            </div>
-            <div>
-              <div class="left">
-                <label htmlFor={CostId}>Cost</label>
-              </div>
-                <input
-                  type="number"
-                  name={CostId}
-                  data-id={index}
-                  id={CostId}
-                  value={products[index].cost}
-                  className="cost"
-                />
-            </div>
 
-
-
-
-            <div>
-              <div class="left">
-                <label htmlFor={QuantityId}>Quantity</label>
-              </div>
-                <input
-                  type="number"
-                  name={QuantityId}
-                  data-id={index}
-                  id={QuantityId}
-                  value={products[index].quantity}
-                  className="quantity"
-                />
-                <br/>
-            </div>
-
-            <div>
-              <div class="left">
-                <label htmlFor={ExpirationDateId}>Expiration Date</label>
-              </div>
-                <input
-                  type="text"
-                  name={ExpirationDateId}
-                  data-id={index}
-                  id={ExpirationDateId}
-                  value={products[index].expirationDate}
-                  className="expirationDate"
-                />
-
-            </div>
             </div>
           )
         })
       }
 
-      <input type="submit" value="Add Product" />
+      <input type="submit" value="Run Model" />
       </form>
 
 
